@@ -1,20 +1,15 @@
 class Solution {
 public:
-    bool threeConsecutiveOdds(vector<int>& arr)
-    {
-        if(arr.size() < 3)
-            return false;
-        int i=0;
-        while(i < arr.size()-2)
+    bool threeConsecutiveOdds(vector<int>& arr) {
+        int count = 0;
+        for (int num : arr)
         {
-            if(arr[i+2]%2 == 0)
-                i = i+3;
-            else if(arr[i+1]%2 == 0)
-                i = i+2;
-            else if(arr[i]%2 == 0)
-                i = i+1;
+            if (num % 2!= 0) {
+                count++;
+                if (count == 3) return true;
+            }
             else
-                return true; 
+                count = 0;
         }
         return false;
     }
